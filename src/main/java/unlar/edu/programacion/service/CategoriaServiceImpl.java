@@ -80,8 +80,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
         categoriaRepository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException(
-                                "Categoría no encontrada con id: " + id));
+                        new ResourceNotFoundException("Categoría no encontrada con id: " + id));
 
         if (!productoRepository.findByCategoria(id).isEmpty()) {
             throw new BusinessRuleException(
